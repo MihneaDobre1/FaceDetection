@@ -1,0 +1,92 @@
+#Import a video
+import cv2
+print("Package Imported")
+
+cap = cv2.VideoCapture("Resources/test_video.mp4")
+
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
+
+#Import a image
+import cv2
+print("Package Imported")
+
+img = cv2.imread("Resources/lena.png")
+
+cv2.imshow("Output",img)
+cv2.waitKey(0)
+
+#Import webcam
+
+import cv2
+print("Package Imported")
+
+cap = cv2.VideoCapture(0)
+cap.set(3, 640)
+cap.set(4, 480)
+cap.set(10, 200)
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
+
+#Gray Image
+
+import cv2
+
+img = cv2.imread("Resources/lena.png")
+
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+cv2.imshow("Gray Image", imgGray)
+cv2.waitKey(0)
+
+#Grey and BLUR Image
+
+import cv2
+
+img = cv2.imread("Resources/lena.png")
+
+
+
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+imgBlur = cv2.GaussianBlur(imgGray, (13,13),0)
+cv2.imshow("Gray Image", imgGray)
+cv2.imshow("Blur Image", imgBlur)
+cv2.waitKey(0)
+
+
+#Line and rectangle
+
+import cv2
+import numpy as np
+
+img = np.zeros((512, 512,3), np.uint8)
+
+cv2.line(img,(0,0),(img.shape[1],img.shape[0]),(0,255,0),2)
+
+cv2.rectangle(img, (0,0),(250,350),(0,0,255),2)
+
+cv2.imshow("Image", img)
+
+cv2.waitKey(0)
+
+#Text and Circle
+
+import cv2
+import numpy as np
+
+img = np.zeros((512, 512,3), np.uint8)
+
+cv2.line(img,(0,0),(img.shape[1],img.shape[0]),(0,255,0),2)
+
+cv2.rectangle(img, (0,0),(250,350),(0,0,255),2)
+cv2.circle(img, (400,100),30,(255,255,0),5)
+cv2.putText(img,"OpenCV", (300,200),cv2.FONT_HERSHEY_COMPLEX,1,(0,150,0),1)
+cv2.imshow("Image", img)
+
+cv2.waitKey(0)
